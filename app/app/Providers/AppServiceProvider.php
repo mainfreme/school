@@ -9,9 +9,12 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-    public function register(): void
+    public function register()
     {
-        //
+        $this->app->bind(
+            \App\Domain\InPost\Services\InPostServiceInterface::class,
+            \App\Infrastructure\InPost\InPostService::class
+        );
     }
 
     /**
