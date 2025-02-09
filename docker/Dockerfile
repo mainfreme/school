@@ -1,8 +1,13 @@
 # Używamy oficjalnego obrazu PHP 8.3 z PHP-FPM
 FROM php:8.3-fpm
 
+# Instalacja Node.js i npm
+RUN apt update && apt install -y curl
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+
 # Instalujemy niezbędne pakiety i rozszerzenia PHP (np. GD, PDO, PDO_PGSQL, Redis)
 RUN apt-get update && apt-get install -y \
+    nodejs \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
